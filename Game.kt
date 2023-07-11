@@ -57,7 +57,7 @@ class Game {
         return true
     }
 
-    private fun makeMove(direction: Directions) {
+    fun makeMove(direction: Directions) {
         val emptyPosition = findEmptyPosition()
 
         when (direction) {
@@ -87,5 +87,21 @@ class Game {
             }
         }
         return Pair(-1, -1)
+    }
+
+    fun copy(): Game {
+        val copiedBoard = Array(boardSize) { row ->
+            Array(boardSize) { col ->
+                board[row][col]
+            }
+        }
+
+        val copiedGame = Game()
+        copiedGame.setBoard(copiedBoard)
+        return copiedGame
+    }
+
+    private fun setBoard(newBoard: Array<Array<Int>>) {
+        board = newBoard;
     }
 }
