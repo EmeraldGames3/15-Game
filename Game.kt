@@ -41,6 +41,22 @@ class Game {
         makeMove(Directions.West)
     }
 
+    fun isGameWon(): Boolean {
+        var value = 1
+        for (i in 0 until boardSize) {
+            for (j in 0 until boardSize) {
+                if (board[i][j] != value) {
+                    return false
+                }
+                value++
+                if (value == boardSize * boardSize) {
+                    break
+                }
+            }
+        }
+        return true
+    }
+
     private fun makeMove(direction: Directions) {
         val emptyPosition = findEmptyPosition()
 

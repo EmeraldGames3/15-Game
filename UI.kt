@@ -29,11 +29,28 @@ class UI {
                 }
                 else -> println("Invalid command. Please try again.")
             }
+
+            if (game.isGameWon()) {
+                println("You've won! Congratulations")
+                return
+            }
         }
     }
 
-    fun playGameAI(){
+    fun playGameAI() {
+        println("Welcome to the AI game!")
 
+        while (true) {
+            println("\nCurrent Board:")
+            println(this)
+
+            if (game.isGameWon()) {
+                println("AI Player has won! Congratulations")
+                return
+            }
+
+            ai.playGame(game)
+        }
     }
 
     override fun toString(): String {
