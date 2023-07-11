@@ -33,11 +33,11 @@ class Game {
         makeMove(Directions.South)
     }
 
-    fun moveLeft() {
+    fun moveRight() {
         makeMove(Directions.East)
     }
 
-    fun moveRight() {
+    fun moveLeft() {
         makeMove(Directions.West)
     }
 

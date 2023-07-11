@@ -1,5 +1,40 @@
+import java.util.*
+
 class UI {
-    private val game = Game();
+    private val game = Game()
+    private val ai = AIPlayer();
+
+    fun playGame() {
+        val scanner = Scanner(System.`in`)
+        var userInput: String?
+
+        println("Welcome to the game!")
+        println("Commands: W (Up), S (Down), A (Left), D (Right), Q (Quit)")
+
+        while (true) {
+            println("\nCurrent Board:")
+            println(this)
+
+            print("Enter a command: ")
+            userInput = scanner.nextLine().trim().uppercase(Locale.getDefault())
+
+            when (userInput) {
+                "W" -> game.moveUp()
+                "S" -> game.moveDown()
+                "A" -> game.moveLeft()
+                "D" -> game.moveRight()
+                "Q" -> {
+                    println("Thanks for playing!")
+                    return
+                }
+                else -> println("Invalid command. Please try again.")
+            }
+        }
+    }
+
+    fun playGameAI(){
+
+    }
 
     override fun toString(): String {
         val stringBuilder = StringBuilder()
